@@ -9,10 +9,13 @@
   <!-- <base href="./"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css"></head>
-  <body style="height: 100vh; width: 100%;">
+  <body style="height: 100%; width: 100%; overflow-x: hidden;">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
     <div class="container">
+      <div style="width: 100%; padding: 0 50px;">
+        <img style="margin-left: 50px;" src="logo.png" width="350">
+      </div>
       <div class="opt-bar">
         <div appearance="legacy">
           <label>Select Language</label>
@@ -30,17 +33,43 @@
             <option value="dictionary-en">English</option>
           </select>
         </div>
-        <button id="check" color="primary" onclick="checkText()">Check</button>
-        <button id="correct" color="primary" onclick="reset()">Continue writing</button>
+        <button id="check" class="btn" onclick="checkText()">Check</button>
+        <button id="correct" class="btn" onclick="reset()">Continue writing</button>
       </div>
       <div id="text-c" class="textarea" appearance="outline">
-          <textarea id="textarea" style="width: 100%" rows="20" cols="100" placeholder="text" ></textarea>
+        <textarea class="inp-area" id="textarea" style="width: 100%" rows="20" cols="100" placeholder="text" ></textarea>
       </div>
       <div id="result-c" class="textarea border" style="display: none;">
         <div id="ex-pa" class="ex-pa">
           <p id="result"></p>
         </div>
       </div>
+      <div style="text-align: center;">
+        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(Ñ ñ Á á É é Í í Ó ó Ú ú ü ¿¡)</font></font></h2>
+
+        <br>
+
+
+
+        <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Description:</font></font></b><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+
+        The online spell checker supports 11 different languages &ZeroWidthSpace;&ZeroWidthSpace;including English and works without reloading the page. </font></font><br><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+
+        We recommend: </font></font><a href="https://www.todofranquicias.com/franquicias-de-ensenanza-y-formacion.html" title="Language academy franchises"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Language academy franchises </font></font></a><br>
+
+        <br><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Steps to follow:</font></font></b><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+
+        - Select the language you want to correct. </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+
+        (Spanish English German French Italian and others) </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+
+        - Enter the text to be corrected. </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+
+        - And just click on </font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Correct Spelling in your Language</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+
+          - Click on the wrong words for suggestions.
+
+      </div>
     </div>
   </body>
-</html>
+  </html>
