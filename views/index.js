@@ -1,3 +1,10 @@
+$(document).ready(function(){
+	console.log('shjdghjdhgjdsJquery is ready')
+	$("#ex-pa").dblclick(function(){
+	//   alert("The paragraph was double-clicked.d");
+	  reset()
+	});
+  });
 const BASE_URL = 'http://localhost:3000/';
 let result;
 document.addEventListener('readystatechange', event => { 
@@ -88,3 +95,4 @@ function textcount() {
 		document.getElementById('text-count').style.color = 'red'
 	}
 }
+
