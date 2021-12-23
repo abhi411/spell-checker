@@ -8,12 +8,15 @@
 
   <!-- <base href="./"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css"></head>
-  <body style="height: 100%; width: 100%; overflow-x: hidden;">
+  <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
     <div class="container">
-      <div style="width: 100%; padding: 0 50px;">
+      <div class="logo-c">
         <img style="margin-left: 50px;" src="logo.png" width="350">
       </div>
       <div class="opt-bar">
@@ -37,12 +40,16 @@
         <button id="correct" class="btn" onclick="reset()">Continue writing</button>
       </div>
       <div id="text-c" class="textarea" appearance="outline">
-        <textarea class="inp-area" id="textarea" style="width: 100%" rows="20" cols="100" placeholder="text" ></textarea>
+        <textarea class="inp-area" id="textarea" style="width: 100%" rows="30" cols="100" placeholder="Start typing here..." oninput="textcount()"></textarea>
       </div>
+     
       <div id="result-c" class="textarea border" style="display: none;">
         <div id="ex-pa" class="ex-pa">
           <p id="result"></p>
         </div>
+      </div>
+      <div class="text-count">
+        <h3 style="margin: 0 5px" id="text-count"></h3>
       </div>
       <div style="text-align: center;">
         <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(Ñ ñ Á á É é Í í Ó ó Ú ú ü ¿¡)</font></font></h2>
@@ -70,6 +77,11 @@
           - Click on the wrong words for suggestions.
 
       </div>
+      <br>
+    <br>
+    <br>
     </div>
+    <br>
+
   </body>
   </html>

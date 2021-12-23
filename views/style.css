@@ -1,3 +1,11 @@
+body {
+	height: 100%;
+	margin: 0;
+	width: 100%;
+	overflow-x: hidden;
+	background: #c9e265;
+}
+
 .container {
 	width: 100%;
 	height: 100%;
@@ -10,13 +18,12 @@
 }
 
 .textarea {
-	height: 50vh;
 	width: 75%;
 }
 .opt-bar {
 	width: 75%;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
 	margin-bottom: 10px;
 }
@@ -47,7 +54,6 @@
 }
 
 .btn {
-    height: 30px;
     background: #5271ff;
     outline: none;
     border: none;
@@ -56,4 +62,30 @@
     font-weight: 600;
     box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
     cursor: pointer;
+}
+.logo-c {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	margin-bottom: 50px;
+}
+
+.text-count {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+select {
+    height: 40px;
+    width: 250px;
+    border: 1px solid #5271f4;
+    border-radius: 5px;
+    padding: 0 10px;
+    outline: none;
+    font-size: 18px;
+    color: #737373;
 }

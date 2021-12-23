@@ -42,19 +42,36 @@ module.exports.checkSpell = function(arr,lang) {
         console.log("spewll");
 
         console.log(spell.correct('colour')) // => false
-        let resp = "<p>"
+        let resp = `<div style="display: flex;">`
         arr.forEach((element,index) => {
         console.log("ele",element);
             if(index != 0)
                 resp = resp + " "
             if(spell.correct(element)){
-                resp = resp+element
+                resp = resp+`<span>${element}</span>&nbsp;`
             }
             else {
-                resp = resp + `<span style="color:red">${element}</span>`
+                let sug=spell.suggest(element)
+                if(sug && sug.length>0) {
+                    let list=''
+                    sug.forEach((ele) =>{
+                        list+= `<li><a href="#">${ele}</a></li>`
+                    })
+                    resp = resp + `<div class="dropdown">
+                    <span style="color:red" class="dropdown-toggle" type="button" data-toggle="dropdown">${element}
+                    </span>
+                    <ul class="dropdown-menu">
+                     ${list}
+                    </ul>
+                  </div>
+                  &nbsp;`
+                }
+                else{
+                    resp = resp + `<span style="color:red">${element}</span>&nbsp;`
+                }
             }
         });
-        resolve(resp+'</p>')
+        resolve(resp+'</div>')
     }
     }) 
 

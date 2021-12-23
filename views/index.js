@@ -3,7 +3,8 @@ let result;
 document.addEventListener('readystatechange', event => { 
 	// document.getElementById("result").style.backgroundColor = '#262626'
 	document.getElementById("correct").style.display = "none";
-
+	document.getElementById('text-count').style.color = '#737373'
+	document.getElementById('text-count').innerHTML = '10000 characters left'
 });
 
 let lang;
@@ -16,12 +17,15 @@ function langChange() {
 function checkText() {
 	text = document.getElementById("textarea").value;
 	if(text) {
-        const body = {
-            string: text,
-            lang: lang
-        }
-        postMethod('spellCheck', body);
-        console.log(text);
+		if(text.toString().length <= 10000) {
+			const body = {
+	            string: text,
+	            lang: lang
+	        }
+	        postMethod('spellCheck', body);
+	        console.log(text);
+		}
+		else alert('10000 characters only')
     }
     else {
         alert('Please enter any text')
@@ -67,4 +71,20 @@ function setHeight() {
 	// let h = document.getElementById('result').style.height;
 	
 	// console.log(h)
+}
+
+
+function textcount() {
+	let t = document.getElementById('textarea').value
+ 
+	if (t.toString().length <= 10000) {
+		let count = (10000 - t.toString().length) + ' characters left'
+		document.getElementById('text-count').innerHTML = count 
+		document.getElementById('text-count').style.color = '#737373'
+	}
+	else {
+		let count = (t.toString().length - 10000) + ' characters over'
+		document.getElementById('text-count').innerHTML = count	
+		document.getElementById('text-count').style.color = 'red'
+	}
 }
