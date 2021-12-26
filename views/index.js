@@ -5,7 +5,7 @@ $(document).ready(function(){
 	  reset()
 	});
   });
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'https://correccionortografica.com/';
 let result;
 document.addEventListener('readystatechange', event => { 
 	// document.getElementById("result").style.backgroundColor = '#262626'
@@ -49,12 +49,12 @@ async function postMethod(endpoint, body) {
 	document.getElementById("result-c").style.display = "flex";
 	document.getElementById("ex-pa").innerHTML = result;
 	document.getElementById("check").style.display = "none";
-	document.getElementById("correct").style.display = "block";
+	document.getElementById("correct").style.display = "inline-block";
 }
 
 function reset() {
 	document.getElementById("correct").style.display = "none";
-	document.getElementById("check").style.display = "block";
+	document.getElementById("check").style.display = "inline-block";
 	document.getElementById("result-c").style.display = "none";
 	document.getElementById("text-c").style.display = "flex";
 	document.getElementById("textarea").value = text;

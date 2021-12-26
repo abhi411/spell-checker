@@ -3,14 +3,14 @@ body {
 	margin: 0;
 	width: 100%;
 	overflow-x: hidden;
-	background: #c9e265;
+	background: #f1f1f1;
 }
 
 .container {
 	width: 100%;
 	height: 100%;
 	position: relative;
-	background: #c9e265;
+	background: #f1f1f1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -62,6 +62,7 @@ body {
     font-weight: 600;
     box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
     cursor: pointer;
+    height: 40px;
 }
 .logo-c {
 	width: 100%;
@@ -69,7 +70,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 30px 0;
-	margin-bottom: 50px;
 }
 
 .text-count {
