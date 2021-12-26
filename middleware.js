@@ -1,10 +1,5 @@
 var nspell = require('nspell')
 
-function getDic(lang) {
-// var dictionary = require('dictionary-en')
-    
-}
-
 module.exports.checkSpell = function(arr,lang) {
     return new Promise(resolve => {
         if(lang == 'dictionary-ca')
@@ -30,46 +25,47 @@ module.exports.checkSpell = function(arr,lang) {
         else 
         var dictionary = require('dictionary-en')
 
-        console.log("jhjhj")
         dictionary(ondictionary)
         function ondictionary(err, dict) {
-        console.log("spewll");
+
         if (err) {
             console.log(err,"err");
             throw err
         }
         var spell = nspell(dict)
-        console.log("spewll");
 
-        console.log(spell.correct('colour')) // => false
-        let resp = `<div style="display: flex;">`
-        arr.forEach((element,index) => {
-        console.log("ele",element);
-            if(index != 0)
-                resp = resp + " "
-            if(spell.correct(element)){
-                resp = resp+`<span>${element}</span>&nbsp;`
-            }
-            else {
-                let sug=spell.suggest(element)
-                if(sug && sug.length>0) {
-                    let list=''
-                    sug.forEach((ele) =>{
-                        list+= `<li><a href="#">${ele}</a></li>`
-                    })
-                    resp = resp + `<div class="dropdown">
-                    <span style="color:red" class="dropdown-toggle" type="button" data-toggle="dropdown">${element}
-                    </span>
-                    <ul class="dropdown-menu">
-                     ${list}
-                    </ul>
-                  </div>
-                  &nbsp;`
-                }
-                else{
-                    resp = resp + `<span style="color:red">${element}</span>&nbsp;`
-                }
-            }
+        let resp = `<div">`
+        arr.forEach((line,index) => {
+           line.split(" ").map((word, j) => {
+            word = word.trim()
+            //    if(index != 0)
+            //        resp = resp + " "
+               if(spell.correct(word)){
+                   resp = resp+`<span>${word}</span>`
+               }
+               else {
+                   let sug=spell.suggest(word)
+                   if(sug && sug.length>0) {
+                       let list=''
+                       sug.forEach((suggWord) =>{
+                           list+= `<li><a onclick="return applySuggestions(this);" href="Javascript:void(0)">${suggWord}</a></li>`
+                       })
+                       resp = resp + `<div class="dropdown" style="display: inline-block;">
+                       <span style="color:red" class="dropdown-toggle" type="button" data-toggle="dropdown">${word}
+                       </span>
+                       <ul class="dropdown-menu">
+                        ${list}
+                       </ul>
+                     </div>`
+                   }
+                   else{
+                       resp = resp + `<span title="No Suggestion Available" style="color:red">${word}</span>`
+                   }
+               }
+               // if not last iteration
+               if(j != line.split(" ").length - 1) resp += `&nbsp;`
+           })
+           if(arr.length > 1) resp += `<br>`
         });
         resolve(resp+'</div>')
     }

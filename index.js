@@ -13,10 +13,8 @@ const port = 3001
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.post('/spellCheck', jsonParser, async(req, res) => {
-    console.log("res",req.body)
-    var data = req.body.string.split(" ")
+    var data = req.body.string.split("\n")
     let rep = await spell.checkSpell(data,req.body.lang)
-    console.log("data",data,rep)
     res.send(rep)
 })
 

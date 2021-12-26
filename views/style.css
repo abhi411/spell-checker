@@ -90,6 +90,9 @@ select {
     color: #737373;
 }
 
+span {
+	display: inline-block;
+}
 
 @media only screen and (max-width: 700px) {
 	.opt-bar {

@@ -1,5 +1,16 @@
+function applySuggestions(currentRef){
+let slctedSuggestion = $(currentRef).text()
+let wrongWord = $(currentRef).closest("ul.dropdown-menu").siblings("span").text().trim().replace(/\n/g,'')
+$(currentRef).closest("ul.dropdown-menu").siblings("span").text(slctedSuggestion)
+$(currentRef).closest("ul.dropdown-menu").siblings("span").css({color: "green"})
+let regex = new RegExp(wrongWord, 'g');
+let updtdTextareaVal = $("#text-c").find("textarea").val().replace(regex, slctedSuggestion)
+$("#text-c").find("textarea").val(updtdTextareaVal)
+}
+
+
+
 $(document).ready(function(){
-	console.log('shjdghjdhgjdsJquery is ready')
 	$("#ex-pa").dblclick(function(){
 	//   alert("The paragraph was double-clicked.d");
 	  reset()
@@ -18,7 +29,6 @@ let lang;
 let text;
 function langChange() {
 	lang = document.getElementById("lang").value;
-	console.log(lang)
 }
 
 function checkText() {
@@ -30,7 +40,6 @@ function checkText() {
 	            lang: lang
 	        }
 	        postMethod('spellCheck', body);
-	        console.log(text);
 		}
 		else alert('10000 characters only')
     }
@@ -57,17 +66,9 @@ function reset() {
 	document.getElementById("check").style.display = "inline-block";
 	document.getElementById("result-c").style.display = "none";
 	document.getElementById("text-c").style.display = "flex";
-	document.getElementById("textarea").value = text;
+	// document.getElementById("textarea").value = text;
 }
 
-
-const dummyText = [
-	{ text: 'Hello', correct: true},
-	{ text: 'my', correct: true},
-	{ text: 'nmea', correct: false},
-	{ text: 'is', correct: true},
-	{ text: 'John', correct: false}
-]
 
 function setHeight() {
 	const elem = document.querySelector("#textarea");
@@ -75,9 +76,7 @@ function setHeight() {
 	  	const rect = elem.getBoundingClientRect();
 		document.getElementById('ex-pa').style.height = rect.height + 'px';
 	}
-	// let h = document.getElementById('result').style.height;
-	
-	// console.log(h)
+
 }
 
 
