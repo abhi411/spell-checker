@@ -9,7 +9,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'views')));
 
-const port = 3001
+const port = process.env.PORT || 3001
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.post('/spellCheck', jsonParser, async(req, res) => {
