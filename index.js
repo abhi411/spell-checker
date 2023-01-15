@@ -18,7 +18,9 @@ app.post('/spellCheck', jsonParser, async(req, res) => {
     res.send(rep)
 })
 
-
+app.get('/ads.txt', function(req, resp, next){
+res.render('ads.txt')
+})
 app.get('/', function (req, response, next) {
     fs.readFile('./views/index.html', function (err, html) {
         if (err) throw err;    
