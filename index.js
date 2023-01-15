@@ -2,6 +2,7 @@ const express = require('express')
 const fs = require('fs')
 var bodyParser = require('body-parser')
 const app = express()
+const wakeDyno = require("woke-dyno");
 var path = require('path');
 var spell = require("./middleware")
 app.set('views', path.join(__dirname, 'views'));
@@ -32,4 +33,5 @@ app.get('/', function (req, response, next) {
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
+wakeDyno("https://correccionortografica.com").start();
 })
