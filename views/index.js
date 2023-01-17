@@ -16,7 +16,7 @@ $(document).ready(function(){
 	  reset()
 	});
   });
-const BASE_URL = 'https://correccionortografica.com/';
+const BASE_URL = 'https://www.correccionortografica.com/';
 let result;
 document.addEventListener('readystatechange', event => { 
 	// document.getElementById("result").style.backgroundColor = '#262626'
