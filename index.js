@@ -2,6 +2,7 @@ const express = require('express')
 const fs = require('fs')
 var bodyParser = require('body-parser')
 const app = express()
+const cors = require('cors');
 const wakeDyno = require("woke-dyno");
 var path = require('path');
 var spell = require("./middleware")
@@ -9,6 +10,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'views')));
+
+app.use(cors({
+    origin: 'https://www.correccionortografica.com'
+}));
 
 const port = process.env.PORT || 3001
 var jsonParser = bodyParser.json()
