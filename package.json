@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
     "dictionary-ca": "^2.5.1",
     "dictionary-da": "^4.5.0",
     "dictionary-de": "^2.0.4",
