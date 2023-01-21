@@ -108,3 +108,11 @@ span {
 		width: 95%;
 	}
 }
+
+.content p {
+	font-size: medium; 
+}
+
+.img {
+	text-align: center !important;
+}
